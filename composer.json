@@ -1,0 +1,21 @@
+{
+    "name": "hongcaideng/sso-client",
+    "require": {
+        "rmccue/requests": ">=1.0",
+        "php": ">=5.5.9",
+        "illuminate/support": "5.1.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "HongcaiDeng\\SSO-Client": "src/"
+        }
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Hongcai Deng",
+            "email": "admin@dhchouse.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}
