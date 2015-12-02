@@ -35,7 +35,7 @@ class Ticket
         $options = ['timeout' => $this->config['timeout']];
 
         try {
-            $request = Requests::get(str_replace($this->config['retrive_user_url'], ':ticket', $ticket), $headers, $options);
+            $request = Requests::get(str_replace(':ticket', $ticket, $this->config['retrive_user_url']), $headers, $options);
             $json = json_decode($request->body);
             if ($json === null) {
                 throw new InvalidArgumentException(sprintf('unexpected data from server: %s', $request->body));
