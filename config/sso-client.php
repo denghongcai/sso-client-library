@@ -8,5 +8,6 @@
 
 return [
     'sso_login_url' => 'http://passport.hexi.cn',
-    'retrive_user_url' => 'http://passport.heix.cn/api/ticket/:ticket'
+    'retrive_user_url' => 'http://passport.heix.cn/api/ticket/:ticket',
+    'update_user_url' => 'http://passport.heix.cn/api/user'
 ];

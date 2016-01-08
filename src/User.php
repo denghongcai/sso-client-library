@@ -12,7 +12,7 @@ use InvalidArgumentException;
 use Requests;
 use Requests_Exception;
 
-class Ticket
+class User
 {
     private $config = [];
 
@@ -22,20 +22,23 @@ class Ticket
     }
 
     /**
-     * retrive user using ticket
+     * update user info
      *
      * @param $ticket
+     * @param $info
      * @return object|null
      * @throws InvalidArgumentException if response is unexpected
      * @throws Requests_Exception
      */
-    function retriveUser($ticket)
+    function update($ticket, $info)
     {
-        $headers = ['Accept' => 'application/json'];
+        $headers = ['Content-Type' => 'application/json'];
         $options = ['timeout' => $this->config['timeout']];
+        $info = (array)$info;
+        $info['ticket'] = $ticket;
 
         try {
-            $request = Requests::get(str_replace($this->config['retrive_user_url'], ':ticket', $ticket), $headers, $options);
+            $request = Requests::post($this->config['update_user_url'], $headers, json_encode($info), $options);
             $json = json_decode($request->body);
             if ($json === null) {
                 throw new InvalidArgumentException(sprintf('unexpected data from server: %s', $request->body));

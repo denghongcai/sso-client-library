@@ -25,6 +25,8 @@ class SSOClient
         {
             case 'ticket':
                 return new Ticket($this->config);
+            case 'user':
+                return new User($this->config);
             default:
                 return false;
         }
