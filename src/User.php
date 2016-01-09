@@ -38,7 +38,7 @@ class User
         $info['ticket'] = $ticket;
 
         try {
-            $request = Requests::post($this->config['update_user_url'], $headers, json_encode($info), $options);
+            $request = Requests::put($this->config['update_user_url'], $headers, json_encode($info), $options);
             $json = json_decode($request->body);
             if ($json === null) {
                 throw new InvalidArgumentException(sprintf('unexpected data from server: %s', $request->body));
